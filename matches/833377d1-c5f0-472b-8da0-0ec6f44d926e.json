@@ -1,0 +1,192 @@
+{
+    "id": "833377d1-c5f0-472b-8da0-0ec6f44d926e",
+    "created_at": "2025-05-21T22:58:58.977843",
+    "info": {
+        "name": "north",
+        "team_us": " d",
+        "team_them": "s",
+        "date": "2025-05-22",
+        "time": "00:31:52.145670",
+        "location": "",
+        "rules": {
+            "sets_to_win": 3,
+            "points_to_win": 25,
+            "point_diff": 2
+        },
+        "notes": "",
+        "status": "未开始"
+    },
+    "sets": [
+        {
+            "number": 0,
+            "initial_position": {
+                "us": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "current_position": {
+                "us": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "serve_first": "us",
+            "current_server": "us",
+            "rotation_index": 4,
+            "score": {
+                "us": 8,
+                "them": 4
+            },
+            "events": [],
+            "substitutions": [
+                {
+                    "time": "2025-05-22T00:38:06.897775",
+                    "team": "us",
+                    "in_player": "g",
+                    "out_player": "a",
+                    "position": 0,
+                    "score": {
+                        "us": 4,
+                        "them": 2
+                    }
+                }
+            ],
+            "timeouts": {
+                "us": [
+                    {
+                        "time": "2025-05-22T00:37:58.693226",
+                        "score": {
+                            "us": 4,
+                            "them": 2
+                        }
+                    }
+                ],
+                "them": []
+            },
+            "stats": {
+                "us": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                },
+                "them": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                }
+            },
+            "status": "in_progress",
+            "liberos": {
+                "us": [
+                    "r"
+                ],
+                "them": []
+            },
+            "initial_confirmed": true
+        },
+        {
+            "number": 1,
+            "initial_position": {
+                "us": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "current_position": {
+                "us": [
+                    "a",
+                    "b",
+                    "c",
+                    "d",
+                    "e",
+                    "f"
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "serve_first": "us",
+            "current_server": "us",
+            "rotation_index": 1,
+            "score": {
+                "us": 3,
+                "them": 1
+            },
+            "events": [],
+            "substitutions": [],
+            "timeouts": {
+                "us": [],
+                "them": []
+            },
+            "stats": {
+                "us": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                },
+                "them": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                }
+            },
+            "status": "in_progress",
+            "liberos": {
+                "us": [
+                    "r"
+                ],
+                "them": []
+            },
+            "initial_confirmed": true
+        }
+    ],
+    "stats": {},
+    "tactics": {},
+    "current_set": 1
+}

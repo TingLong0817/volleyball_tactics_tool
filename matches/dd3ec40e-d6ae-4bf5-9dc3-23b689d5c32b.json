@@ -1,0 +1,52 @@
+{
+    "id": "dd3ec40e-d6ae-4bf5-9dc3-23b689d5c32b",
+    "created_at": "2025-05-21T23:03:30.089608",
+    "info": {
+        "name": "north",
+        "team_us": " d",
+        "team_them": "s",
+        "rules": {
+            "sets_to_win": 3,
+            "points_to_win": 25,
+            "point_diff": 2
+        },
+        "notes": "",
+        "status": "未开始",
+        "created_at": "2025-05-21T23:03:30.089608"
+    },
+    "sets": [
+        {
+            "score_us": 2,
+            "score_them": 1,
+            "current_serve_side": "us",
+            "rotation_index": 1,
+            "score_history": [
+                {
+                    "score_us": 0,
+                    "score_them": 0,
+                    "rotation_index": 0,
+                    "serve_side": "us",
+                    "time": 1747825521.4063125
+                },
+                {
+                    "score_us": 1,
+                    "score_them": 0,
+                    "rotation_index": 0,
+                    "serve_side": "us",
+                    "time": 1747825522.884195
+                },
+                {
+                    "score_us": 1,
+                    "score_them": 1,
+                    "rotation_index": 0,
+                    "serve_side": "them",
+                    "time": 1747825525.2527282
+                }
+            ],
+            "status": "我方得分！",
+            "timestamp": "2025-05-21T23:05:25.252728"
+        }
+    ],
+    "stats": {},
+    "tactics": {}
+}
