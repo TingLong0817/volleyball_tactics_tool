@@ -1,0 +1,488 @@
+{
+    "id": "bc8bf94f-22b7-4136-b0f0-582afc24be2b",
+    "created_at": "2025-05-22T16:34:04.556616",
+    "info": {
+        "name": "Northern",
+        "team_us": " d",
+        "team_them": "ss",
+        "date": "2025-05-22",
+        "time": "16:34:04.552645",
+        "location": "",
+        "rules": {
+            "sets_to_win": 3,
+            "points_to_win": 25,
+            "point_diff": 2,
+            "total_sets": 5
+        },
+        "notes": "",
+        "status": "未开始"
+    },
+    "sets": [
+        {
+            "number": 1,
+            "initial_position": {
+                "us": [
+                    "a",
+                    "e",
+                    "f",
+                    "b",
+                    "c",
+                    "d"
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "current_position": {
+                "us": [
+                    "a",
+                    "e",
+                    "f",
+                    "b",
+                    "c",
+                    "d"
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "serve_first": "us",
+            "current_server": "us",
+            "rotation_index": 3,
+            "score": {
+                "us": 7,
+                "them": 4
+            },
+            "events": [
+                {
+                    "set_number": 1,
+                    "rally_number": 1,
+                    "winner": "us",
+                    "score": {
+                        "us": 1,
+                        "them": 0
+                    },
+                    "score_reason": "attack",
+                    "player": "a",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 2,
+                    "winner": "us",
+                    "score": {
+                        "us": 2,
+                        "them": 0
+                    },
+                    "score_reason": "attack",
+                    "player": "f",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 3,
+                    "winner": "them",
+                    "score": {
+                        "us": 2,
+                        "them": 1
+                    },
+                    "score_reason": "attack",
+                    "player": "None",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 4,
+                    "winner": "us",
+                    "score": {
+                        "us": 3,
+                        "them": 1
+                    },
+                    "score_reason": "serve",
+                    "player": "e",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 5,
+                    "winner": "them",
+                    "score": {
+                        "us": 3,
+                        "them": 2
+                    },
+                    "score_reason": "attack",
+                    "player": "a",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 6,
+                    "winner": "them",
+                    "score": {
+                        "us": 3,
+                        "them": 3
+                    },
+                    "score_reason": "serve",
+                    "player": "e",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 7,
+                    "winner": "us",
+                    "score": {
+                        "us": 4,
+                        "them": 3
+                    },
+                    "score_reason": "opponent_error",
+                    "player": "None",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 8,
+                    "winner": "us",
+                    "score": {
+                        "us": 5,
+                        "them": 3
+                    },
+                    "score_reason": "opponent_error",
+                    "player": "e",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 9,
+                    "winner": "us",
+                    "score": {
+                        "us": 6,
+                        "them": 3
+                    },
+                    "score_reason": "attack",
+                    "player": "e",
+                    "note": ""
+                },
+                {
+                    "set_number": 1,
+                    "rally_number": 10,
+                    "winner": "them",
+                    "score": {
+                        "us": 6,
+                        "them": 4
+                    },
+                    "score_reason": "attack",
+                    "player": "a",
+                    "note": ""
+                }
+            ],
+            "substitutions": [],
+            "timeouts": {
+                "us": [],
+                "them": []
+            },
+            "stats": {
+                "us": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                },
+                "them": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                }
+            },
+            "status": "in_progress",
+            "initial_confirmed": true,
+            "liberos": {
+                "us": [],
+                "them": []
+            }
+        },
+        {
+            "number": 2,
+            "initial_position": {
+                "us": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "current_position": {
+                "us": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "serve_first": "us",
+            "current_server": "us",
+            "rotation_index": 0,
+            "score": {
+                "us": 0,
+                "them": 0
+            },
+            "events": [],
+            "substitutions": [],
+            "timeouts": {
+                "us": [],
+                "them": []
+            },
+            "stats": {
+                "us": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                },
+                "them": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                }
+            },
+            "status": "not_started"
+        },
+        {
+            "number": 3,
+            "initial_position": {
+                "us": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "current_position": {
+                "us": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "serve_first": "us",
+            "current_server": "us",
+            "rotation_index": 0,
+            "score": {
+                "us": 0,
+                "them": 0
+            },
+            "events": [],
+            "substitutions": [],
+            "timeouts": {
+                "us": [],
+                "them": []
+            },
+            "stats": {
+                "us": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                },
+                "them": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                }
+            },
+            "status": "not_started"
+        },
+        {
+            "number": 4,
+            "initial_position": {
+                "us": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "current_position": {
+                "us": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "serve_first": "us",
+            "current_server": "us",
+            "rotation_index": 0,
+            "score": {
+                "us": 0,
+                "them": 0
+            },
+            "events": [],
+            "substitutions": [],
+            "timeouts": {
+                "us": [],
+                "them": []
+            },
+            "stats": {
+                "us": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                },
+                "them": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                }
+            },
+            "status": "not_started"
+        },
+        {
+            "number": 4,
+            "initial_position": {
+                "us": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "current_position": {
+                "us": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ],
+                "them": [
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "serve_first": "us",
+            "current_server": "us",
+            "rotation_index": 0,
+            "score": {
+                "us": 0,
+                "them": 0
+            },
+            "events": [],
+            "substitutions": [],
+            "timeouts": {
+                "us": [],
+                "them": []
+            },
+            "stats": {
+                "us": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                },
+                "them": {
+                    "attacks": [],
+                    "blocks": [],
+                    "serves": [],
+                    "receives": []
+                }
+            },
+            "status": "not_started"
+        }
+    ],
+    "current_set": 4,
+    "score": {
+        "us": 0,
+        "them": 0
+    }
+}

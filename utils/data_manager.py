@@ -169,23 +169,65 @@ class DataManager:
         return match_data['sets'][set_number]
 
     def update_set_position(self, match_id, set_number, team, positions, is_initial=False):
-        """更新某一局的场上位置
-        Args:
-            match_id (str): 比赛ID
-            set_number (int): 局数
-            team (str): 队伍 ('us' 或 'them')
-            positions (list): 位置列表
-            is_initial (bool): 是否为初始站位
-        """
         match_data = self.load_match(match_id)
         if not match_data or set_number >= len(match_data['sets']):
             return False
 
+        # 保证 initial_position 字典存在
         if is_initial:
+            if 'initial_position' not in match_data['sets'][set_number]:
+                match_data['sets'][set_number]['initial_position'] = {}
             match_data['sets'][set_number]['initial_position'][team] = positions
+
+        # 保证 current_position 字典存在
+        if 'current_position' not in match_data['sets'][set_number]:
+            match_data['sets'][set_number]['current_position'] = {}
         match_data['sets'][set_number]['current_position'][team] = positions
+
         self.save_match(match_id, match_data)
         return True
+
+    def check_set_completion(self, match_id, set_number):
+        """检查某一局是否结束
+        Args:
+            match_id (str): 比赛ID
+            set_number (int): 局数
+        Returns:
+            tuple: (is_completed, winner, final_score)
+        """
+        match_data = self.load_match(match_id)
+        if not match_data or set_number >= len(match_data['sets']):
+            return False, None, None
+
+        set_data = match_data['sets'][set_number]
+        score = set_data['score']
+        rules = match_data['info']['rules']
+        points_to_win = rules['points_to_win']
+        point_diff = rules['point_diff']
+        
+        # 检查是否达到获胜条件
+        if (score['us'] >= points_to_win or score['them'] >= points_to_win) and \
+           abs(score['us'] - score['them']) >= point_diff:
+            # 确定获胜方
+            winner = 'us' if score['us'] > score['them'] else 'them'
+            final_score = score.copy()
+            
+            # 更新局状态
+            set_data['status'] = 'completed'
+            # 更新总比分
+            match_data['score'][winner] += 1
+            
+            # 检查整场比赛是否结束
+            sets_to_win = rules['sets_to_win']
+            if match_data['score'][winner] >= sets_to_win:
+                match_data['info']['status'] = '已结束'
+            
+            # 保存更新
+            self.save_match(match_id, match_data)
+            
+            return True, winner, final_score
+        
+        return False, None, None
 
     def record_point(self, match_id, set_number, team):
         """记录得分
@@ -193,10 +235,12 @@ class DataManager:
             match_id (str): 比赛ID
             set_number (int): 局数
             team (str): 得分方 ('us' 或 'them')
+        Returns:
+            tuple: (is_completed, winner, final_score) 如果这一分结束了本局，返回相关信息
         """
         match_data = self.load_match(match_id)
         if not match_data or set_number >= len(match_data['sets']):
-            return False
+            return False, None, None
 
         # 更新该局比分
         match_data['sets'][set_number]['score'][team] += 1
@@ -211,21 +255,11 @@ class DataManager:
                 rotation_index = match_data['sets'][set_number]['rotation_index']
                 match_data['sets'][set_number]['rotation_index'] = (rotation_index + 1) % 6
 
-        # 检查是否达到获胜条件
-        score = match_data['sets'][set_number]['score']
-        rules = match_data['info']['rules']
-        points_to_win = rules['points_to_win']
-        point_diff = rules['point_diff']
-        
-        if (score['us'] >= points_to_win or score['them'] >= points_to_win) and \
-           abs(score['us'] - score['them']) >= point_diff:
-            match_data['sets'][set_number]['status'] = 'completed'
-            # 更新总比分
-            winner = 'us' if score['us'] > score['them'] else 'them'
-            match_data['score'][winner] += 1
-
+        # 保存更新
         self.save_match(match_id, match_data)
-        return True
+        
+        # 检查是否完成本局
+        return self.check_set_completion(match_id, set_number)
 
     def record_substitution(self, match_id, set_number, team, in_player, out_player, position):
         """记录换人
@@ -404,4 +438,27 @@ class DataManager:
             self.data["rotation_setup"],
             self.data["libero_positions"],
             self.data["final_rotation"]
-        ) 
+        )
+
+    def delete_match(self, match_id):
+        """删除比赛
+        Args:
+            match_id (str): 比赛ID
+        Returns:
+            bool: 是否删除成功
+        """
+        try:
+            # 构建比赛文件路径
+            match_file = os.path.join(MATCH_DIR, f"{match_id}.json")
+            
+            # 检查文件是否存在
+            if not os.path.exists(match_file):
+                return False
+            
+            # 删除文件
+            os.remove(match_file)
+            return True
+            
+        except Exception as e:
+            print(f"删除比赛失败: {str(e)}")
+            return False 

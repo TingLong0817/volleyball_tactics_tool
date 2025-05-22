@@ -1,6 +1,7 @@
 import streamlit as st
 from utils.data_manager import DataManager
 from datetime import datetime
+import time
 
 st.set_page_config(layout="wide", page_title="比赛管理")
 
@@ -101,9 +102,8 @@ with st.expander("创建/编辑比赛", expanded=not bool(edit_match_id)):
         st.subheader("⚙️ 比赛规则")
         col3, col4, col5 = st.columns(3)
         with col3:
-            sets_to_win = st.number_input("获胜局数", 
-                                        min_value=2, max_value=3, 
-                                        value=match_info.get("rules", {}).get("sets_to_win", 2))
+            total_sets = st.number_input("总局数", min_value=1, max_value=9, value=5)
+            sets_to_win = (total_sets // 2) + 1
         with col4:
             points_to_win = st.number_input("每局获胜分数", 
                                           min_value=15, max_value=25, 
@@ -139,7 +139,8 @@ with st.expander("创建/编辑比赛", expanded=not bool(edit_match_id)):
                     "rules": {
                         "sets_to_win": sets_to_win,
                         "points_to_win": points_to_win,
-                        "point_diff": point_diff
+                        "point_diff": point_diff,
+                        "total_sets": total_sets
                     },
                     "notes": notes,
                     "status": match_info.get("status", "未开始")
@@ -155,10 +156,11 @@ with st.expander("创建/编辑比赛", expanded=not bool(edit_match_id)):
                 else:
                     match_id = data_manager.create_match(new_match_info)
                     if match_id:
-                        st.success("✅ 比赛创建成功！")
+                        st.success(f"比赛已创建，{total_sets}局{sets_to_win}胜制")
                         st.session_state.current_match_id = match_id
-                        # 创建第一局
-                        data_manager.create_set(match_id, 0)
+                        # 自动新建所有局
+                        for i in range(total_sets):
+                            data_manager.create_set(match_id, i)
                     else:
                         st.error("❌ 比赛创建失败")
                 st.rerun()
@@ -230,6 +232,42 @@ else:
                     if st.button("📊 查看统计", key=f"stats_{match_id}"):
                         st.session_state.current_match_id = match_id
                         # TODO: 添加统计页面跳转
+                with col4:
+                    # 初始化删除状态
+                    if f"delete_state_{match_id}" not in st.session_state:
+                        st.session_state[f"delete_state_{match_id}"] = "initial"
+                    
+                    if st.session_state[f"delete_state_{match_id}"] == "initial":
+                        if st.button("🗑️ 删除", key=f"delete_{match_id}"):
+                            st.session_state[f"delete_state_{match_id}"] = "confirming"
+                            st.rerun()
+                    
+                    elif st.session_state[f"delete_state_{match_id}"] == "confirming":
+                        st.warning(f"确认要删除比赛「{info.get('name', '未命名比赛')}」吗？此操作不可恢复！")
+                        confirm_col1, confirm_col2 = st.columns(2)
+                        with confirm_col1:
+                            if st.button("✓ 确认删除", key=f"confirm_delete_{match_id}"):
+                                try:
+                                    # 删除比赛文件
+                                    data_manager.delete_match(match_id)
+                                    st.success("✅ 比赛已删除")
+                                    # 清除相关状态
+                                    if 'edit_match_id' in st.session_state and st.session_state.edit_match_id == match_id:
+                                        del st.session_state.edit_match_id
+                                    if 'current_match_id' in st.session_state and st.session_state.current_match_id == match_id:
+                                        del st.session_state.current_match_id
+                                    del st.session_state[f"delete_state_{match_id}"]
+                                    time.sleep(0.5)  # 短暂延迟确保数据更新
+                                    st.rerun()
+                                except Exception as e:
+                                    st.error(f"删除失败: {str(e)}")
+                                    st.session_state[f"delete_state_{match_id}"] = "initial"
+                                    st.rerun()
+                        
+                        with confirm_col2:
+                            if st.button("✗ 取消", key=f"cancel_delete_{match_id}"):
+                                st.session_state[f"delete_state_{match_id}"] = "initial"
+                                st.rerun()
 
 # 添加下一页按钮
 st.markdown("---")
